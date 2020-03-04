@@ -21,4 +21,4 @@ If you're having trouble, try these resources:
 
 * run `cargo build`
 
-* run `./target/debug/taco.exe` (On Windows)
+* run `./target/debug/tacos.exe` (On Windows)
