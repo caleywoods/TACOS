@@ -1,6 +1,6 @@
 ![TACOS logo](https://i.imgur.com/lxOjKGg.jpg)
 
-TACOS is an acronym for Text And Characters On Screen. It is a simple retro themed text editor styled to look like computer terminals of days gone by. TACOS is a GTK application built in [Rust}(https://www.rust-lang.org/) using [gtk-rs](https://gtk-rs.org/). TACOS is still very early early in its development and is a learning process for me.
+TACOS is an acronym for Text And Characters On Screen. It is a simple retro themed text editor styled to look like computer terminals of days gone by. TACOS is a GTK application built in [Rust](https://www.rust-lang.org/) using [gtk-rs](https://gtk-rs.org/). TACOS is still very early early in its development and is a learning process for me.
 
 ### Requirements
 
