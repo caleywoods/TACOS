@@ -4,8 +4,8 @@ extern crate glib;
 extern crate gtk;
 
 use gio::prelude::*;
-use glib::clone;
 use gtk::prelude::*;
+use glib::clone;
 use gtk::{
     AboutDialog, AccelFlags, AccelGroup, ApplicationWindow, Image, Label,
     Menu, MenuBar, MenuItem, WindowPosition,
@@ -21,6 +21,7 @@ fn build_ui(application: &gtk::Application) {
     window.set_size_request(600, 600);
 
     let v_box = gtk::Box::new(gtk::Orientation::Vertical, 5);
+    gtk::WidgetExt::set_widget_name(&v_box, "box-area");
 
     let menu = Menu::new();
     let accel_group = AccelGroup::new();
@@ -77,6 +78,16 @@ fn main() {
     .expect("Initialization failed...");
 
     application.connect_activate(|app| {
+        let css_provider = gtk::CssProvider::new();
+        css_provider
+            .load_from_path("../../src/css/gtk.css")
+            .expect("Failed to load CSS");
+        gtk::StyleContext::add_provider_for_screen(
+            &gdk::Screen::get_default().expect("Error initializing css provider."),
+            &css_provider,
+            gtk::STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+
         build_ui(app);
     });
 
