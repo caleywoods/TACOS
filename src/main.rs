@@ -16,10 +16,12 @@ use std::env::args;
 
 fn build_ui(application: &gtk::Application) {
     let window = ApplicationWindow::new(application);
+    let icon = gdk_pixbuf::Pixbuf::new_from_file("../../src/img/tacos.png").expect("Could not create app icon");
 
     window.set_title("TACOS");
     window.set_position(WindowPosition::Center);
     window.set_size_request(600, 600);
+    window.set_icon(Some(&icon));
 
     let text_view = gtk::TextView::new();
     text_view.set_wrap_mode(gtk::WrapMode::WordChar);
