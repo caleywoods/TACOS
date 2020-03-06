@@ -20,14 +20,29 @@ fn build_ui(application: &gtk::Application) {
     window.set_position(WindowPosition::Center);
     window.set_size_request(600, 600);
 
-    let v_box = gtk::Box::new(gtk::Orientation::Vertical, 5);
-    gtk::WidgetExt::set_widget_name(&v_box, "box-area");
+    let text_view = gtk::TextView::new();
+    text_view.set_wrap_mode(gtk::WrapMode::WordChar);
+    text_view.set_cursor_visible(true);
+    text_view.set_left_margin(5);
+    text_view.set_right_margin(5);
+
+    gtk::WidgetExt::set_widget_name(&text_view, "text-view");
+
+    let scrolled_text_view = gtk::ScrolledWindow::new(gtk::NONE_ADJUSTMENT, gtk::NONE_ADJUSTMENT);
+    scrolled_text_view.set_policy(gtk::PolicyType::Automatic, gtk::PolicyType::Automatic);
+    scrolled_text_view.add(&text_view);
+
+    gtk::WidgetExt::set_widget_name(&scrolled_text_view, "text-buffer");
+
+    let v_box = gtk::Box::new(gtk::Orientation::Vertical, 0);
+    gtk::WidgetExt::set_widget_name(&v_box, "v-box");
 
     let menu = Menu::new();
     let accel_group = AccelGroup::new();
     window.add_accel_group(&accel_group);
 
     let menu_bar = MenuBar::new();
+
     let file = MenuItem::new_with_label("File");
     let about = MenuItem::new_with_label("About");
     let quit = MenuItem::new_with_label("Quit");
@@ -54,6 +69,8 @@ fn build_ui(application: &gtk::Application) {
     quit.add_accelerator("activate", &accel_group, key, modifier, AccelFlags::VISIBLE);
 
     v_box.pack_start(&menu_bar, false, false, 0);
+    v_box.pack_start(&scrolled_text_view, true, true, 0);
+
     window.add(&v_box);
     window.show_all();
 
