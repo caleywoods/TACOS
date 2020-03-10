@@ -22,3 +22,12 @@ If you're having trouble, try these resources:
 * run `cargo build`
 
 * run `./target/debug/tacos.exe` (On Windows)
+
+### Fonts
+
+By default, TACOS uses the [Nouveau IBM](https://www.dafont.com/nouveau-ibm.font) font. Follow the link to download and install it or open `src\css\gtk.css` and change the `font-family` property to a different font that is installed on your local system.
+
+
+### GUI Example
+
+![TACOS GUI With Nouveau IBM Font](https://i.imgur.com/5tZmV2W.png)

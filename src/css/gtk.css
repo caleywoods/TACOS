@@ -1,4 +1,12 @@
+#text-view {
+    font-family: 'Nouveau IBM';
+    font-size: 20px;
+}
+
 #text-view text{
-    background-color: blue;
-    color: #ccc;
+    background-color: #0000AA;
+    color: #AAAAAA;
+    /* Uncomment these and comment the above to have green text on black background
+    background-color: #000000;
+    color: #00AA00; */
 }
